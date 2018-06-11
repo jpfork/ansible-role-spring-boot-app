@@ -1,9 +1,9 @@
 [Service]
-WorkingDirectory=/home/ubuntu
-ExecStart=/usr/bin/java {{ spring_boot_app_options }} -jar -Dspring.profiles.active={{ spring_boot_app_active_profiles }} /home/ubuntu/app.jar
+WorkingDirectory=/home/niclettel
+ExecStart=/usr/bin/java {{ spring_boot_app_options }} -jar -Dspring.profiles.active={{ spring_boot_app_active_profiles }} /home/niclettel/app.jar
 Restart=on-failure
-User=ubuntu
-Group=ubuntu
+User=niclettel
+Group=niclettel
 
 [Install]
 WantedBy=multi-user.target

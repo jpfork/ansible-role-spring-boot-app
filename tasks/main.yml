@@ -20,13 +20,13 @@
     enabled: yes
 
 - name: Upload JAR file
-  copy:
-    src: "{{ spring_boot_app_jar_path }}"
-    dest: /home/ubuntu/app.jar
+  get_url:
+    src: "{{ nexus_server }}/{{ nexus_repository }}/{{ artefact_groupe_id }}/{{ artefact_id }}/{{ artefact_version }}/{{ artefact_id }}-{{ artefact_version }}.{{ artefact_extension }}"
+    dest: /home/niclettel/app.jar
 
 - name: Write properties files
   blockinfile:
-    name: /home/ubuntu/application.yml
+    name: /home/niclettel/application.yml
     block: "{{ spring_boot_app_properties }}"
     create: yes
   when: spring_boot_app_properties is defined
